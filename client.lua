@@ -5,6 +5,7 @@ local function createDutyBlips(playerId, playerName)
     local ped = GetPlayerPed(playerId);
     local blip = GetBlipFromEntity(ped);
     if not DoesBlipExist(blip) then
+        if ped == GetPlayerPed(-1) and not Config.DrawSelfBlip then return end
         blip = AddBlipForEntity(ped);
         SetBlipSprite(blip, 1);
         SetBlipScale(blip, 1.0)
